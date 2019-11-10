@@ -1,0 +1,16 @@
+@import "variables";
+
+.heading_2 {
+    border-bottom: solid 3px $heading_main_border;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.heading_2:after {
+    position: absolute;
+    content: " ";
+    display: block;
+    border-bottom: solid 3px $heading_sub_border;
+    bottom: -3px;
+    width: 20%;
+}

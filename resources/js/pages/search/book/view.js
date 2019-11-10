@@ -28,7 +28,7 @@ new Vue({
 
             axios.get('/api/search/book/', {
                 params: {
-                    keyword: this.keyword
+                    keyword: this._htmlspecialchars(this.keyword)
                 }
             }).then(res => {
                 this.books = res.data;
@@ -53,6 +53,14 @@ new Vue({
         _endSearching() {
             this.isSearching = false;
             this.searchedKeyword = this.keyword;
-        }
+        },
+
+        _htmlspecialchars(str) {
+            return (str + '').replace(/&/g,'&amp;')
+                .replace(/"/g,'&quot;')
+                .replace(/'/g,'&#039;')
+                .replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;');
+        },
     }
 });

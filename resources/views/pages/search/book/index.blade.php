@@ -18,72 +18,21 @@
         <p v-if="message" class="mt-5 mb-5 pt-3 pb-3 text-center alert-danger" v-text="message"></p>
 
         <div v-if="books.length > 0" class="mt-5">
-            <h2 class="text-center"><span v-text="searchedKeyword"></span>の検索結果</h2>
-            <div class="row">
-                <div class="card mt-2 col-md-3 col-sm-6 col-xs-12" v-for="book in books">
-                    <img :src="book.image_url" class="card-img-top" :alt="book.title">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a :href="book.url" v-text="book.title"></a>
-                        </h5>
-                        <div class="card-text">
-                            <table>
-                                <tr>
-                                    <th>出版社</th>
-                                    <td v-text="book.publisher"></td>
-                                </tr>
-                                <tr>
-                                    <th>著者</th>
-                                    <td v-text="book.author"></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a :href="book.url">Amazonはこちら</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="/user/book/insert">my本棚への登録はこちら</a>
-                        </li>
-                    </ul>
+            <h2 class="text-cente heading_2"><span v-text="searchedKeyword"></span>の検索結果</h2>
+            <div class="row p-1">
+                <div v-for="book in books" class="w-100">
+                    @include('components.card_book_js')
                 </div>
             </div>
         </div>
 
         @if(count($latest_books) > 0)
             <div class="mt-5">
-                <h2 class="text-center">最近登録された本</h2>
+                <h2 class="text-center heading_2">最近登録された本</h2>
                 <div class="row p-1">
                     @foreach($latest_books as $book)
-                        <div class="card mb-1 col-md-3 col-sm-6 col-xs-12">
-                            <img src="{{ $book->image_url }}" class="card-img-top" alt="{{ $book->title }}">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ $book->url }}">{{ $book->title }}</a>
-                                </h5>
-                                <div class="card-text">
-                                    <table>
-                                        <tr>
-                                            <th>出版社</th>
-                                            <td>{{ $book->publisher }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>著者</th>
-                                            <td>{{ $book->author }}</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <a href="{{ $book->url }}">Amazonはこちら</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="/user/book/insert">my本棚への登録はこちら</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @card_book(['book' => $book])
+                        @endcard_book
                     @endforeach
                 </div>
             </div>
