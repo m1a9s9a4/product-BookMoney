@@ -13,6 +13,7 @@
 
 Route::get('/search/book/', 'SearchBookController@main');
 Route::get('/book/shelf/', 'BookShelfController@main');
+Route::get('/book/shelf/{type_name}', 'BookShelfTypeController@main');
 
 
 Auth::routes();
