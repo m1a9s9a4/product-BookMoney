@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\BookShelf\Main as PageService;
+use Illuminate\Support\Facades\Auth;
 
 class BookShelfController extends Controller
 {
@@ -19,10 +20,10 @@ class BookShelfController extends Controller
 
     public function main(Request $request)
     {
-        $read_books = $this->page_service->getReadBooksByUserId(1);
+        $read_books = $this->page_service->getReadBooksByUserId(Auth::id());
         $read_price = $this->page_service->sumBookPrices($read_books);
 
-        $unread_books = $this->page_service->getUnReadBooksByUserId(1);
+        $unread_books = $this->page_service->getUnReadBooksByUserId(Auth::id());
         $unread_price = $this->page_service->sumBookPrices($unread_books);
 
         return view('book.shelf.index', [

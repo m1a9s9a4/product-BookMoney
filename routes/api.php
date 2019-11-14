@@ -20,5 +20,6 @@ Route::group([
         'middleware' => 'verify.ajax',
     ], function () {
         Route::get('search/book', 'SearchBookController@main');
+        Route::post('user/book/insert/', 'UserBookInsertExecuteController@main');
     });
 });

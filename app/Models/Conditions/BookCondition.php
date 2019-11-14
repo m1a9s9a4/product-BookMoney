@@ -2,6 +2,7 @@
 namespace App\Models\Conditions;
 
 use App\Models\Resources\Eloquent\Book;
+use Illuminate\Support\Arr;
 
 class BookCondition extends BaseCondition
 {
@@ -35,5 +36,21 @@ class BookCondition extends BaseCondition
             ->get();
     }
 
+    public function getByCode(string $code)
+    {
+        return $this->book
+            ->where('code', $code)
+            ->get();
+    }
 
+    public function save(array $input)
+    {
+        $this->book->title = Arr::get($input, 'title');
+        $this->book->publisher = Arr::get($input, 'publisher');
+        $this->book->author = Arr::get($input, 'author');
+        $this->book->url = Arr::get($input, 'url');
+        $this->book->image_url = Arr::get($input, 'image_url');
+        $this->book->code = Arr::get($input, 'code');
+        $this->book->save();
+    }
 }

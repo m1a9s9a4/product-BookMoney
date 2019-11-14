@@ -22,9 +22,7 @@
             <li class="list-group-item">
                 <a href="{{ $book->url }}">Amazonはこちら</a>
             </li>
-            <li class="list-group-item">
-                <a href="/user/book/insert">my本棚への登録はこちら</a>
-            </li>
+            @include('components.add_book_button', ['text' => 'my本棚に登録する', 'book_id' => $book->id])
         </ul>
     </div>
 </div>

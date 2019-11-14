@@ -35,4 +35,12 @@ class UserBookCondition extends BaseCondition
             ->with(['user', 'book', 'status', 'book.price'])
             ->get();
     }
+
+    public function save($user_id, $book_id, $status_id)
+    {
+        $this->user_book->user_id = $user_id;
+        $this->user_book->book_id = $book_id;
+        $this->user_book->status_id = $status_id;
+        $this->user_book->save();
+    }
 }

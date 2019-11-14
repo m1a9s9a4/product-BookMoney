@@ -1,7 +1,7 @@
 @if(count($books) > 0)
     <div class="book_shelf row">
         @foreach($books as $book)
-            <div class="col-md-2 col-sm-6 col-6 p-3">
+            <div class="col-md-3 col-sm-6 col-6 p-3">
                 <div class="card w-100">
                     <img src="{{ $book->image_url }}" class="card-img-top" alt="{{ $book->title }}">
                     <div class="card-body">

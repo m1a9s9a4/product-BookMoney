@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/search/book/', 'SearchBookController@main');
-Route::get('/book/shelf/', 'BookShelfController@main');
-Route::get('/book/shelf/{type_name}', 'BookShelfTypeController@main');
+Route::group([
+    'middleware' => 'auth',
+], function () {
+    Route::get('/', 'SearchBookController@main');
+    Route::get('/search/book/', 'SearchBookController@main');
+    Route::get('/book/shelf/', 'BookShelfController@main');
+    Route::get('/book/shelf/{type_name}/', 'BookShelfTypeController@main');
 
+    Route::post('/user/book/insert', 'UserBookInsertExecuteController@main');
+});
 
 Auth::routes();

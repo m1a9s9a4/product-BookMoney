@@ -15,17 +15,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="text-danger">
                     <th>これから読む！</th>
-                    <td>{{ number_format($unread_price) }}</td>
+                    <td>{{ number_format(0 - $unread_price) }}</td>
                 </tr>
-                <tr>
+                <tr class="text-success">
                     <th>読んだ！</th>
                     <td>{{ number_format($read_price) }}</td>
                 </tr>
                 <tr>
                     <th>合計！</th>
-                    <td>{{ number_format($read_price - $unread_price) }}</td>
+                    @if($read_price > $unread_price)
+                        <td class="text-success">{{ number_format($read_price - $unread_price) }}</td>
+                    @elseif($read_price < $unread_price)
+                        <td class="text-danger">{{ number_format($read_price - $unread_price) }}</td>
+                    @else
+                        <td>{{ number_format($read_price - $unread_price) }}</td>
+                    @endif
                 </tr>
             </tbody>
         </table>
