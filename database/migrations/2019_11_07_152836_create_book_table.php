@@ -24,7 +24,7 @@ class CreateBookTable extends Migration
             $table->timestamps();
 
             $table->index(['title', 'code']);
-            $table->unique(['title', 'code']);
+            $table->unique('code');
         });
     }
 

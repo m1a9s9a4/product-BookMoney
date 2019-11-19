@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserBookTable extends Migration
+class  CreateUserBookTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,6 +19,8 @@ class CreateUserBookTable extends Migration
             $table->unsignedInteger('book_id');
             $table->unsignedSmallInteger('status_id');
             $table->timestamps();
+
+            $table->unique(['user_id', 'book_id']);
 
             $table
                 ->foreign('user_id')

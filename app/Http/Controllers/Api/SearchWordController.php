@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Models\Conditions\BookCondition;
 
-class SearchBookController extends BaseController
+class SearchWordController extends BaseController
 {
     /** @var BookCondition $book_condition */
     protected $book_condition;

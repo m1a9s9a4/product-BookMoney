@@ -8,7 +8,7 @@ use App\Services\UserBookInsertExecute\Main as PageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserBookInsertExecuteController extends BaseController
+class BookInsertController extends BaseController
 {
     /** @var UserBookCondition $user_book_condition */
     protected $user_book_condition;
@@ -37,6 +37,6 @@ class UserBookInsertExecuteController extends BaseController
 
         }
 
-        return back();
+        return redirect()->back(302);
     }
 }

@@ -16,8 +16,12 @@ class BookCondition extends BaseCondition
         $this->book = $book;
     }
 
-    public function search(string $keyword)
+    public function search(string $keyword = null)
     {
+        if (is_null($keyword)) {
+            return [];
+        }
+
         $query_string = '%' . $keyword . '%';
 
         return $this->book

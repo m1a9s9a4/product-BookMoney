@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\BookShelfType;
+namespace App\Services\MyBookType;
 
 use App\Models\Conditions\UserBookCondition;
 use App\Services\BaseService;

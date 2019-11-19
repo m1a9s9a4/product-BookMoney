@@ -1,5 +1,5 @@
 <div class="mb-1 col-md-3 col-sm-6 p-1">
-    <div class="card">
+    <div class="card book_card">
         <img src="{{ $book->image_url }}" class="card-img-top" alt="{{ $book->title }}">
         <div class="card-body">
             <h5 class="card-title">
@@ -22,7 +22,7 @@
             <li class="list-group-item">
                 <a href="{{ $book->url }}">Amazonはこちら</a>
             </li>
-            @include('components.add_book_button', ['text' => 'my本棚に登録する', 'book_id' => $book->id])
+            @include('components.add_book_button', ['text' => 'my本棚に登録する', 'book' => $book])
         </ul>
     </div>
 </div>
