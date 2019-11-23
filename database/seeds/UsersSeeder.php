@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use \Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Hash;
 
 class UsersSeeder extends Seeder
 {
@@ -16,8 +16,15 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'masa',
-            'email' => 'test@test.com',
-            'password' => 'hogehoge',
+            'email' => 'test_1@test.com',
+            'password' => Hash::make('bookismoney'),
+        ]);
+
+        DB::table('users')->insert([
+            'id' => 2,
+            'name' => 'fumi',
+            'email' => 'test_2@test.com',
+            'password' => Hash::make('bookismoney'),
         ]);
     }
 }
