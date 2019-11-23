@@ -71,18 +71,18 @@
                     </form>
 
                     <div class="form-group mt-3">
-                        <a href="/login/google" type="button">
+                        <a href="/login/" type="button">
                             アカウントをお持ちの方はこちら
                         </a>
                     </div>
 
-                    <hr>
+{{--                    <hr>--}}
 
-                    <div class="form-group mt-2">
-                        <a href="/login/google">
-                            <img src="storage/images/google_signin_btn_blue.png" alt="ログインボタン">
-                        </a>
-                    </div>
+{{--                    <div class="form-group mt-2">--}}
+{{--                        <a href="/login/google">--}}
+{{--                            <img src="storage/images/google_signin_btn_blue.png" alt="ログインボタン">--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
