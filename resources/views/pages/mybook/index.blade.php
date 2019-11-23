@@ -10,11 +10,11 @@
         <h3 class="heading_2 text-center">
             これから読む！
         </h3>
-        <a href="/book/shelf/unread">一覧はこちら</a>
+        <a href="/mybook/unread">一覧はこちら</a>
         @include('components.book_shelf', ['read' => false, 'books' => $unread_books])
 
         <h3 class="heading_2 text-center">読んだ！</h3>
-        <a href="/book/shelf/read">一覧はこちら</a>
+        <a href="/mybook/read">一覧はこちら</a>
         @include('components.book_shelf', ['read' => true, 'books' => $read_books])
     </div>
 

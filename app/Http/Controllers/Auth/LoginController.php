@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/book/shelf';
+    protected $redirectTo = '/mybook/';
 
     /** @var UserCondition $user_condition */
     protected $user_condition;
