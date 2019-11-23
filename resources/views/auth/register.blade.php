@@ -76,13 +76,13 @@
                         </a>
                     </div>
 
-{{--                    <hr>--}}
+                    <hr>
 
-{{--                    <div class="form-group mt-2">--}}
-{{--                        <a href="/login/google">--}}
-{{--                            <img src="storage/images/google_signin_btn_blue.png" alt="ログインボタン">--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
+                    <div class="form-group mt-2">
+                        <a href="/login/google">
+                            <img src="{{ asset('images/google_signin_btn_blue.png') }}" alt="ログインボタン">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
