@@ -25,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::component('components.card_book', 'card_book');
+        if (\App::environment(['staging', 'production'])) {
+            \URL::forceScheme('https');
+        }
     }
 }
