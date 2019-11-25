@@ -71,7 +71,7 @@
                     </form>
 
                     <div class="form-group mt-3">
-                        <a href="/login/" type="button">
+                        <a href="/login/">
                             アカウントをお持ちの方はこちら
                         </a>
                     </div>
