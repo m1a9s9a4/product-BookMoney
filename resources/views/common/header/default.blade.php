@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <a class="navbar-brand" href="{{ url('/') }}">
+        <img src="{{ asset('images/icon.png') }}">
         {{ config('app.name', 'Laravel') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +15,7 @@
                 @endif
             @else
                 <a href="{{ url('/balance/') }}" class="nav-item nav-link">
-                    ホーム
+                    収支表
                 </a>
                 <a href="{{ url('/mybook/') }}" class="nav-item nav-link">
                     my本棚

@@ -7,7 +7,10 @@
 
     <div class="container">
         <div class="mb-2">
-            <h2 class="heading_2 text-left">my本棚</h2>
+            <h2 class="heading_2 text-left">
+                <i class="material-icons"></i>
+                my本棚
+            </h2>
             <p>
                 {{ Auth::user()->name }}さんのすでに読み終えた本とまだ読み終えていない本を、それぞれ最大4冊表示しています。<br>
                 一覧をみたい方は、それぞれのセクションの「一覧はこちら」をクリックしてください。
