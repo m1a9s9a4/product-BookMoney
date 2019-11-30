@@ -59,7 +59,6 @@ class LoginController extends Controller
         $user = $this->user_condition->where('email', $gUser->email)->first();
         if (is_null($user)) {
             $user = $this->createUserByGoogle($gUser);
-            dd($user);
         }
 
         \Auth::login($user, true);
