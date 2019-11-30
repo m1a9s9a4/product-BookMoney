@@ -1,6 +1,28 @@
 .navbar_style {
     background-color: #ffffff;
     color: gray;
-    box-shadow: 0px 7px 6px -5px #DFE1E5;
+    box-shadow: 0 7px 6px -5px #DFE1E5;
     margin-bottom: 20px;
+}
+
+.logo {
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+        color: #FFAB05;
+        text-decoration: none;
+    }
+
+    &-img {
+        height: 40px;
+    }
+
+    &-text {
+        color: #FFC200;
+        font-size: 15px;
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }

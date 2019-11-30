@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset('images/icon.png') }}">
-        {{ config('app.name', 'Laravel') }}
+    <a class="logo" href="{{ url('/') }}">
+        <img src="{{ asset('images/logo.png') }}" class="logo-img">
+        <span class="logo-text">{{ config('app.name') }}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
