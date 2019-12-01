@@ -48,32 +48,36 @@
             </tbody>
         </table>
 
-        @if($total_price !== 0)
-            <hr class="p-1">
-
-            <h3>金額</h3>
-            <div id="balanceChart">
-                <pie-chart read="{{ $read_price }}" unread="{{ $unread_price }}"></pie-chart>
-            </div>
-            @if($read_price < $unread_price)
-                <p class="mt-3 text-center">
-                    どんどん自己投資をしましょう！
-                </p>
+        <div class="row">
+            @if($total_price !== 0)
+                <div class="col-md-6 col-sm-12">
+                    <hr class="p-1">
+                    <h3>金額</h3>
+                    <div id="balanceChart">
+                        <pie-chart read="{{ $read_price }}" unread="{{ $unread_price }}"></pie-chart>
+                    </div>
+                    @if($read_price < $unread_price)
+                        <p class="mt-3 text-center">
+                            どんどん自己投資をしましょう！
+                        </p>
+                    @endif
+                </div>
             @endif
-        @endif
 
-        @if($read_count > 0 || $unread_count > 0)
-            <hr class="p-1">
-
-            <h3>書籍の数</h3>
-            <div id="bookCountChart">
-                <pie-chart read="{{ $read_count }}" unread="{{ $unread_count }}"></pie-chart>
-            </div>
-            @if($read_count < $unread_count)
-                <p class="mt-3 text-center">
-                    ここからです！毎日少しずつ読んでいきましょう
-                </p>
+            @if($read_count > 0 || $unread_count > 0)
+                <div class="col-md-6 col-sm-12">
+                    <hr class="p-1">
+                    <h3>書籍の数</h3>
+                    <div id="bookCountChart">
+                        <pie-chart read="{{ $read_count }}" unread="{{ $unread_count }}"></pie-chart>
+                    </div>
+                    @if($read_count < $unread_count)
+                        <p class="mt-3 text-center">
+                            ここからです！毎日少しずつ読んでいきましょう
+                        </p>
+                    @endif
+                </div>
             @endif
-        @endif
+        </div>
     </div>
 @endsection
