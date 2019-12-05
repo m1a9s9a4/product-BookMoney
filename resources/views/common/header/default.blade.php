@@ -7,7 +7,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav ml-auto">
             @guest
                 <a class="nav-item nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                 @if (Route::has('register'))

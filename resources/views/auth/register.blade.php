@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('content')
 <div class="container">
@@ -71,17 +71,21 @@
                     </form>
 
                     <div class="form-group mt-3">
-                        <a href="/login/">
-                            アカウントをお持ちの方はこちら
-                        </a>
+                        <div class="col-md-6 offset-md-4">
+                            <a href="/login/">
+                                アカウントをお持ちの方はこちら
+                            </a>
+                        </div>
                     </div>
 
                     <hr>
 
                     <div class="form-group mt-2">
-                        <a href="/login/google">
-                            <img src="{{ asset('images/google_signin_btn_blue.png') }}" alt="ログインボタン">
-                        </a>
+                        <div class="col-md-6 offset-md-4">
+                            <a href="/login/google">
+                                <img src="{{ asset('images/google_signin_btn_blue.png') }}" alt="ログインボタン">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-91764432-4');
+    </script>
 
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="@yield('description')">
