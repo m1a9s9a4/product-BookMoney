@@ -6,4 +6,9 @@ Vue.component('scale-loader', scaleLoader);
 
 new Vue({
     el: '#searchBox',
+    data: function () {
+        return {
+            isAdding: false,
+        }
+    }
 });
