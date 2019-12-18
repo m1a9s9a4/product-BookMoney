@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models\Resources\Eloquent;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -46,5 +47,15 @@ class User extends Authenticatable
     public function userBooks()
     {
         return $this->hasMany(UserBook::class);
+    }
+
+    public function scopeFirstById(Builder $builder, int $user_id)
+    {
+
+    }
+
+    public function scopeFirstByEmail(Builder $builder, string $email)
+    {
+        return $builder->where('email', $email)->first();
     }
 }

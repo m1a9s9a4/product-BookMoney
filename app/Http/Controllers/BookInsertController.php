@@ -2,25 +2,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Api\BaseController;
-use App\Models\Conditions\UserBookCondition;
-use App\Models\Properties\UserBookStatusType;
+use App\Models\Book;
+use App\Models\UserBook;
+use App\Models\UserBookStatusType;
 use App\Services\UserBookInsertExecute\Main as PageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookInsertController extends BaseController
 {
-    /** @var UserBookCondition $user_book_condition */
-    protected $user_book_condition;
+    protected $user_book;
 
     protected $page_service;
 
-    public function __construct(
-        UserBookCondition $user_book_condition,
-        PageService $page_service
-    )
+    public function __construct(UserBook $user_book, PageService $page_service)
     {
-        $this->user_book_condition = $user_book_condition;
+        $this->user_book = $user_book;
         $this->page_service = $page_service;
     }
 
@@ -31,8 +28,12 @@ class BookInsertController extends BaseController
         }
 
         try {
-            $book = $this->page_service->getBookByCode($request->input('code'));
-            $this->user_book_condition->save(Auth::id(), $book->id,UserBookStatusType::UNREAD_ID);
+            $book = Book::byCode($request->input('code'));
+            $this->user_book->save([
+                'user_id' => Auth::id(),
+                'book_id' => $book->id,
+                'status_id' => UserBookStatusType::UNREAD_ID,
+            ]);
         } catch (\Exception $e) {
 
         }

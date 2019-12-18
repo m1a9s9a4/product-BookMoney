@@ -1,14 +1,14 @@
 <?php
 namespace App\Services\UserBookInsertExecute;
 
-use App\Models\Conditions\BookCondition;
 use App\Services\BaseService;
+use App\Models\Book;
 
 class Main extends BaseService
 {
     protected $book_condition;
 
-    public function __construct(BookCondition $book_condition)
+    public function __construct(Book $book_condition)
     {
         $this->book_condition = $book_condition;
     }
@@ -20,12 +20,5 @@ class Main extends BaseService
         } catch (\Exception $e) {
 
         }
-    }
-
-    public function getBookByCode($code)
-    {
-        return $this->book_condition
-            ->getByCode($code)
-            ->first();
     }
 }
