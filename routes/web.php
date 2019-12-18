@@ -11,11 +11,12 @@
 |
 */
 
+Route::get('/search/', 'SearchWordController@main');
+
 Route::group([
     'middleware' => 'auth',
 ], function () {
     Route::get('/', 'BalanceController@main');
-    Route::get('/search/', 'SearchWordController@main');
     Route::get('/mybook/', 'MyBookController@main');
     Route::get('/mybook/{type}/', 'MyBookTypeController@main');
     Route::get('/balance/', 'BalanceController@main');

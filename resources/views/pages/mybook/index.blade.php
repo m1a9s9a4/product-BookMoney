@@ -4,7 +4,9 @@
 @section('description', 'my本棚で積読中の本と完読した本を見れます')
 
 @section('content')
-
+    <v-app>
+        <v-btn color="primary">Primary</v-btn>
+    </v-app>
     <div class="container">
         <div class="mb-2">
             <h2 class="heading_2 text-left">

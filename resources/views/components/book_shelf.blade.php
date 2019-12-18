@@ -26,6 +26,6 @@
 @else
     <p class="mt-5 mb-5 pt-3 pb-3 text-center alert-warning">
         まだ本が登録されていません。<br>
-        登録される方は<a href="/search/book">こちら</a>から検索してください。
+        登録される方は<a href="/search/">こちら</a>から検索してください。
     </p>
 @endif
