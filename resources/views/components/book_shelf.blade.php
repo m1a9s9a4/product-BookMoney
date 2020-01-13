@@ -4,6 +4,11 @@
             <div class="col-md-3 col-sm-6 col-6 p-3">
                 <div class="card w-100">
                     <img src="{{ $book->image_url }}" class="card-img-top" alt="{{ $book->title }}">
+                    <div class="card-body">
+                        <p class="card-title">
+                            <a href="{{ $book->url }}">{{ $book->title }}</a>
+                        </p>
+                    </div>
                     <ul class="list-group list-group-flush">
                         @if(! $read)
                             <li class="list-group-item">
@@ -11,7 +16,7 @@
                             </li>
                         @endif
                         <li class="list-group-item">
-                            <a href="{{ $book->url }}">Amazonで見る</a>
+                            <a href="{{ $book->url }}">Amazonを見る</a>
                         </li>
                     </ul>
                 </div>

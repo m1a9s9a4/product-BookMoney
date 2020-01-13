@@ -56,9 +56,7 @@
             </tbody>
         </table>
 
-        <h3 class="heading_2 text-left">
-            積読！
-        </h3>
+        <h3 class="heading_2 text-left">積読中！</h3>
         <a href="/mybook/unread">一覧はこちら</a>
         @include('components.book_shelf', ['read' => false, 'books' => $unread_books])
 
