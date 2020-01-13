@@ -9,15 +9,53 @@
     </v-app>
     <div class="container">
         <div class="mb-2">
-            <h2 class="heading_2 text-left">
-                <i class="material-icons"></i>
-                my本棚
-            </h2>
+            <h3 class="heading_2 text-left">my本棚</h3>
             <p>
                 {{ Auth::user()->name }}さんのすでに読み終えた本とまだ読み終えていない本を、それぞれ最大4冊表示しています。<br>
                 一覧をみたい方は、それぞれのセクションの「一覧はこちら」をクリックしてください。
             </p>
         </div>
+        <div>
+            <h3 class="heading_2 text-left">収支総額</h3>
+            @if($total_price < 0)
+                <p class="text-right h1 text-danger">
+                    ¥{{ $total_price }}
+                </p>
+            @elseif($total_price > 0)
+                <p class="text-right h1 text-info">
+                    ¥{{ $total_price }}
+                </p>
+            @else
+                <p class="text-right h1">
+                    ¥{{ $total_price }}
+                </p>
+            @endif
+        </div>
+
+        <h3>収支詳細</h3>
+        <table class="table">
+            <tbody class="text-right">
+            <tr>
+                <td>読んだ！</td>
+                <td class="text-info">¥{{ number_format($read_price) }}</td>
+            </tr>
+            <tr>
+                <td>積読中！</td>
+                <td class="text-danger">¥{{ number_format(0 - $unread_price) }}</td>
+            </tr>
+            <tr>
+                <td>合計！</td>
+                @if($read_price > $unread_price)
+                    <td class="text-info">¥{{ number_format($total_price) }}</td>
+                @elseif($read_price < $unread_price)
+                    <td class="text-danger">¥{{ number_format($total_price) }}</td>
+                @else
+                    <td>¥{{ number_format($total_price) }}</td>
+                @endif
+            </tr>
+            </tbody>
+        </table>
+
         <h3 class="heading_2 text-left">
             積読！
         </h3>

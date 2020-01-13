@@ -17,9 +17,7 @@
                 <a href="{{ url('/mybook/') }}" class="nav-item nav-link">
                     my本棚
                 </a>
-                <a href="{{ url('/balance/') }}" class="nav-item nav-link">
-                    収支表
-                </a>
+{{--                <a href="{{ url('/balance/') }}" class="nav-item nav-link">収支表</a>--}}
                 <a href="{{ url('/mybook/unread/') }}" class="nav-item nav-link">
                     積読中！本棚
                 </a>

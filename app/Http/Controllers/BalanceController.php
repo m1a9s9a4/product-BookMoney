@@ -16,6 +16,8 @@ class BalanceController extends Controller
 
     public function main()
     {
+        return abort(404);
+
         $books = Auth::user()->books();
         $read_books = $books->wherePivot('status_id', UserBookStatusType::READ_ID)->get();
         $unread_books = $books->wherePivot('status_id', UserBookStatusType::UNREAD_ID)->get();

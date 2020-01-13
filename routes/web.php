@@ -19,7 +19,7 @@ Route::group([
     Route::get('/', 'BalanceController@main');
     Route::get('/mybook/', 'MyBookController@main');
     Route::get('/mybook/{type}/', 'MyBookTypeController@main');
-    Route::get('/balance/', 'BalanceController@main');
+//    Route::get('/balance/', 'BalanceController@main');
     Route::post('/book/insert', 'BookInsertController@main');
 });
 

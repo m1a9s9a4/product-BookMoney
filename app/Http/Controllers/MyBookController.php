@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\MyBook\Main as PageService;
 use Illuminate\Support\Facades\Auth;
@@ -21,16 +22,18 @@ class MyBookController extends Controller
 
     public function main(Request $request)
     {
-        $read_books = UserBook::read(Auth::id())->get();
-        $unread_books = UserBook::unread(Auth::id())->get();
+        $read_books = Auth::user()->readBooks()->get();
+        $unread_books = Auth::user()->unreadBooks()->get();
         $read_price = $this->page_service->sumBookPrices($read_books);
         $unread_price = $this->page_service->sumBookPrices($unread_books);
+        $total_price = $read_price - $unread_price;
 
         return view('mybook.index', [
-            'read_books' => $read_books->pluck('book'),
+            'read_books' => $read_books,
             'read_price' => $read_price,
-            'unread_books' => $unread_books->pluck('book'),
+            'unread_books' => $unread_books,
             'unread_price' => $unread_price,
+            'total_price' => $total_price,
         ]);
     }
 }
