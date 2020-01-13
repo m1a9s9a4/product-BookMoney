@@ -13,8 +13,6 @@ class Main extends BaseService
         }
 
         return $books
-            ->pluck('book')
-            ->pluck('price')
             ->pluck('price')
             ->sum();
     }

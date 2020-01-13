@@ -30,6 +30,12 @@ class UserBook extends Model
         return $this->belongsTo(UserBookStatusType::class, 'status_id');
     }
 
+    public function scopeBooks(Builder $builder, int $user_id)
+    {
+        return $builder
+            ->where('user_id', $user_id);
+    }
+
     public function scopeRead(Builder $builder, int $user_id)
     {
         return $builder

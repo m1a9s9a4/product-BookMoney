@@ -12,6 +12,11 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $table = 'users';
+
+    protected $with = [
+        'books'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -41,17 +46,17 @@ class User extends Authenticatable
 
     public function books()
     {
-        return $this->belongsToMany(Book::class, UserBook::class);
+        return $this->belongsToMany(Book::class, UserBook::class)->using(\App\Pivots\UserBook::class)->withPivot('status_id');
     }
 
-    public function userBooks()
+    public function readBooks()
     {
-        return $this->hasMany(UserBook::class);
+        return $this->books()->wherePivot('status_id', UserBookStatusType::READ_ID);
     }
 
-    public function scopeFirstById(Builder $builder, int $user_id)
+    public function unreadBooks()
     {
-
+        return $this->books()->wherePivot('status_id', UserBookStatusType::READ_ID);
     }
 
     public function scopeFirstByEmail(Builder $builder, string $email)
