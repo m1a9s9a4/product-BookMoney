@@ -32,7 +32,7 @@
                 <td class="text-info">¥{{ number_format($read_price) }}</td>
             </tr>
             <tr>
-                <td>これから読む！</td>
+                <td>積読中！</td>
                 <td class="text-danger">¥{{ number_format(0 - $unread_price) }}</td>
             </tr>
             <tr>

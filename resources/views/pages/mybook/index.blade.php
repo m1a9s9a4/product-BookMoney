@@ -19,7 +19,7 @@
             </p>
         </div>
         <h3 class="heading_2 text-left">
-            これから読む！
+            積読！
         </h3>
         <a href="/mybook/unread">一覧はこちら</a>
         @include('components.book_shelf', ['read' => false, 'books' => $unread_books])

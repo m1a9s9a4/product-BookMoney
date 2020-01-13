@@ -56,7 +56,7 @@ class User extends Authenticatable
 
     public function unreadBooks()
     {
-        return $this->books()->wherePivot('status_id', UserBookStatusType::READ_ID);
+        return $this->books()->wherePivot('status_id', UserBookStatusType::UNREAD_ID);
     }
 
     public function scopeFirstByEmail(Builder $builder, string $email)

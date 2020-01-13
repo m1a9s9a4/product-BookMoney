@@ -21,7 +21,7 @@
                     収支表
                 </a>
                 <a href="{{ url('/mybook/unread/') }}" class="nav-item nav-link">
-                    これから読む！本棚
+                    積読中！本棚
                 </a>
                 <a href="{{ url('/mybook/read/') }}" class="nav-item nav-link">
                     読んだ！本棚
