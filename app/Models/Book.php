@@ -9,10 +9,6 @@ class Book extends Model
 {
     protected $table = 'books';
 
-    protected $with = [
-        'price',
-    ];
-
     protected $fillable = [
         'title', 'publisher', 'author', 'url', 'code'
     ];
@@ -27,15 +23,9 @@ class Book extends Model
         return $this->hasMany(UserBook::class);
     }
 
-    public function price()
-    {
-        return $this->hasOne(BookPrice::class);
-    }
-
     public function scopeByCode(Builder $builder, $code)
     {
         return $builder
-            ->with(['book.price'])
             ->where('code', $code)
             ->first();
     }

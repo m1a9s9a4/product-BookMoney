@@ -20,6 +20,7 @@ class BooksSeeder extends Seeder
             'url' => 'https://www.amazon.co.jp/gp/product/4532114071?pf_rd_p=3d322af3-60ce-4778-b834-9b7ade73f617&pf_rd_r=0Z2GY2XTD2VRREGYVHNY',
             'image_url' => 'https://placehold.jp/150x150.png',
             'code' => '4532114071',
+            'price' => '980',
         ]);
 
         DB::table('books')->insert([
@@ -30,6 +31,7 @@ class BooksSeeder extends Seeder
             'url' => 'https://www.amazon.co.jp/gp/product/4532114071?pf_rd_p=3d322af3-60ce-4778-b834-9b7ade73f617&pf_rd_r=0Z2GY2XTD2VRREGYVHNY',
             'image_url' => 'https://placehold.jp/150x150.png',
             'code' => '4295006661',
+            'price' => '1800',
         ]);
     }
 }

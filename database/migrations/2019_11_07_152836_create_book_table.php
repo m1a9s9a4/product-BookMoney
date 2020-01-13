@@ -21,6 +21,7 @@ class CreateBookTable extends Migration
             $table->text('url');
             $table->text('image_url');
             $table->text('code')->comment('ISBN コード');
+            $table->integer('price')->comment('税抜価格');
             $table->timestamps();
 
             $table->index(['title', 'code']);
