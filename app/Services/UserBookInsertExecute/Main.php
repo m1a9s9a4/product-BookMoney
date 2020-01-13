@@ -21,4 +21,9 @@ class Main extends BaseService
 
         }
     }
+
+    public function bookExists($code)
+    {
+        return Book::byCode($code)->exists();
+    }
 }

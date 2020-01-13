@@ -23,7 +23,7 @@ class BookInsertController extends BaseController
 
     public function main(Request $request)
     {
-        if (! $book_id = $request->input('id')) {
+        if (! $this->page_service->bookExists($request->input('code'))) {
             $this->page_service->saveBook($request->input());
         }
 
