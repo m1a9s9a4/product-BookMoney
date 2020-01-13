@@ -24,20 +24,27 @@ class GoogleBook implements BaseBookApi
 
     public function search(string $word = '', int $max = 12, int $page = 0)
     {
-        $response = $this->client->get(self::URL, [
-            self::PARAM_LETTER => 'intitle:' . str_replace(' ', '+', $word),
-            'maxResults' => $max,
-            'startIndex' => $page,
-            'orderBy' => 'newest'
-        ]);
+        $response = [];
+        if ($word && $word !== '') {
+            $response = $this->client->get(self::URL, [
+                self::PARAM_LETTER => 'intitle:' . str_replace(' ', '+', $word),
+                'maxResults' => $max,
+                'startIndex' => $page,
+                'orderBy' => 'newest'
+            ]);
+        }
 
         return $this->convertToBookShelf($response);
     }
 
-    protected function convertToBookShelf($response)
+    protected function convertToBookShelf($response = [])
     {
-        $total = $response->totalItems;
-        $items = $response->items;
+        $total = 0;
+        $items = [];
+        if (! empty($response)) {
+            $total = $response->totalItems;
+            $items = $response->items;
+        }
         $books = collect([]);
         foreach ($items as $item) {
             if (! $this->validate($item)) {

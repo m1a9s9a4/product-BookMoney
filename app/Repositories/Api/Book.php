@@ -5,7 +5,7 @@ class Book
 {
     protected $title;
     protected $publisher;
-    protected $authors = [];
+    protected $authors;
     protected $url;
     protected $image_url;
     protected $price;

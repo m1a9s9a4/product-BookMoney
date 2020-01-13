@@ -15,11 +15,11 @@
             </form>
 
             @if($searched_word)
-                @if(count($search_result) > 0)
+                @if($total > 0)
                     <div class="mt-5 book_card">
                         <h2 class="text-center heading_2"><span>{{ $searched_word }}</span>の検索結果</h2>
                         <div class="row p-1">
-                            @foreach($search_result as $book)
+                            @foreach($searched_books as $book)
                                 @card_book(['book' => $book])
                                 @endcard_book
                             @endforeach
