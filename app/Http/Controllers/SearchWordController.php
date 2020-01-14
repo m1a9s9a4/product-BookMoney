@@ -8,7 +8,8 @@ use App\Services\SearchWord\Main as PageService;
 class SearchWordController extends Controller
 {
     const DEFAULT_SEARCH_WORD = '';
-    const DEFAULT_LATEST_BOOKS_LIMIT = 5;
+
+    const DEFAULT_PER_PAGE = 12;
 
     protected $search_client;
 
@@ -23,16 +24,14 @@ class SearchWordController extends Controller
         $this->page_service = $page_service;
     }
 
-    public function main(Request $request)
+    public function main(Request $request, int $page = 0)
     {
         $word = $request->input('word') ?? self::DEFAULT_SEARCH_WORD;
-        $search_result = $this->search_client->search($word);
-        $latest_books = $this->page_service->getLatestBooks(self::DEFAULT_LATEST_BOOKS_LIMIT);
+        $search_result = $this->search_client->search($word, self::DEFAULT_PER_PAGE, $page);
 
         return view('search.index', [
             'total' => $search_result->getTotal(),
             'searched_books' => $search_result->getBooks(),
-            'latest_books' => $latest_books,
             'searched_word' => $word,
         ]);
     }

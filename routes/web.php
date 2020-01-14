@@ -12,6 +12,7 @@
 */
 
 Route::get('/search/', 'SearchWordController@main');
+Route::get('/search/{page}', 'SearchWordController@main');
 
 Route::group([
     'middleware' => 'auth',

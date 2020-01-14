@@ -30,17 +30,5 @@
                 @endif
             @endif
         </div>
-
-        @if(count($latest_books) > 0)
-            <div class="mt-5 book_card">
-                <h2 class="text-center heading_2">最近追加された本</h2>
-                <div class="row p-1">
-                    @foreach($latest_books as $book)
-                        @card_book(['book' => $book])
-                        @endcard_book
-                    @endforeach
-                </div>
-            </div>
-        @endif
     </div>
 @endsection
