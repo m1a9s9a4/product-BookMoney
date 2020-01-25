@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Api;
 
-use App\Repositories\Api\GoogleBook as Client;
+use App\Repositories\Api\Common\BaseSearchInterface as Client;
 
 class SearchClient
 {
@@ -15,6 +15,6 @@ class SearchClient
 
     public function search(string $word = '', int $max = 12, int $page = 0)
     {
-        return $this->client->search($word, $max, $page);
+        return $this->client->get($word, $max, $page);
     }
 }
