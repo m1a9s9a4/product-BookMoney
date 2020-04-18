@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Api;
 
-use App\Repositories\Api\Common\BaseSearchInterface as Client;
 use App\Repositories\Api\Rakuten\BookSearch;
 
 class SearchClient
@@ -14,6 +13,12 @@ class SearchClient
         $this->client = $client;
     }
 
+    /**
+     * @param string $word
+     * @param int $max
+     * @param int $page
+     * @return \Illuminate\Support\Collection
+     */
     public function search(string $word = '', int $max = 12, int $page = 0)
     {
         return $this->client->get($word, $max, $page);

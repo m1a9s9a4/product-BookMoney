@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Log;
 
 class Client
 {
+    /**
+     * @param $url
+     * @param $parameters
+     * @return array|mixed
+     */
     public function get($url, $parameters)
     {
         $full_url = $url . '?' . http_build_query($parameters);

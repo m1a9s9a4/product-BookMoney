@@ -12,6 +12,8 @@ class Search implements BaseSearchInterface
     const TITLE_PARAMETER = 'title';
     const BOOK_CATEGORY_ID_PARAMETER = 'booksGenreId';
     const SORT_PARAMETER = 'sort';
+    /** @var string SALEになってるものに絞る */
+    const SALES_SORT_PARAMETER = 'sales';
 
     const CATEGORY_ID = '001';
 
@@ -22,20 +24,26 @@ class Search implements BaseSearchInterface
         $this->client = new Client();
     }
 
-    public function get(string $word, int $max, int $page)
+    /**
+     * @param string $word
+     * @param int $max
+     * @param int $page
+     * @return array|mixed
+     */
+    public function get(string $word = '', int $max = 10, int $page = 0)
     {
-        $response = [];
-        if ($word && $word !== '') {
-            $response = $this->client->get(self::BASE_URL, [
-                self::APPLICATION_ID_PARAMETER => config('services.rakuten.application_id'),
-                self::TITLE_PARAMETER => $word,
-                self::BOOK_CATEGORY_ID_PARAMETER => self::CATEGORY_ID,
-                self::SORT_PARAMETER => 'sales',
-                'hits' => $max,
-                'page' => $page,
-            ]);
+        $params = [
+            self::APPLICATION_ID_PARAMETER => config('services.rakuten.application_id'),
+            self::BOOK_CATEGORY_ID_PARAMETER => self::CATEGORY_ID,
+            self::SORT_PARAMETER => self::SALES_SORT_PARAMETER,
+            'hits' => $max,
+            'page' => $page,
+        ];
+
+        if ($word) {
+            $params[self::TITLE_PARAMETER] = $word;
         }
 
-        return $response;
+        return $this->client->get(self::BASE_URL, $params);
     }
 }

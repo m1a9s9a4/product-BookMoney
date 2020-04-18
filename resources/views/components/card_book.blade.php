@@ -1,4 +1,4 @@
-<div class="mb-1 col-md-3 col-sm-6 col-6 p-1">
+<div class="mb-1 col-md-3 col-sm-6 col-12 p-1">
     <div class="card book_card">
         <img src="{{ $book->getImageUrl() }}" class="card-img-top" alt="{{ $book->getTitle() }}">
         <div class="card-body">
@@ -14,7 +14,7 @@
                     <tr>
                         <th>著 者</th>
                         <td>
-                            {{ $book->getAuthorsAsString() }}
+                            {{ $book->getAuthorAsString() }}
                         </td>
                     </tr>
                 </table>

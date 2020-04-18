@@ -30,8 +30,8 @@ class SearchWordController extends Controller
         $search_result = $this->search_client->search($word, self::DEFAULT_PER_PAGE, $page);
 
         return view('search.index', [
-            'total' => $search_result->getTotal(),
-            'searched_books' => $search_result->getBooks(),
+            'total' => $search_result->count(),
+            'searched_books' => $search_result,
             'searched_word' => $word,
         ]);
     }
