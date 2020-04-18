@@ -14,17 +14,17 @@
                     <a class="nav-item nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                 @endif
             @else
-                <a href="{{ url('/mybook/') }}" class="nav-item nav-link">
-                    my本棚
+                <a href="{{ url('/') }}" class="nav-item nav-link">
+                    マイページ
                 </a>
 {{--                <a href="{{ url('/balance/') }}" class="nav-item nav-link">収支表</a>--}}
-                <a href="{{ url('/mybook/unread/') }}" class="nav-item nav-link">
-                    積読中！本棚
+                <a href="{{ route('mybooks', ['type' => 'unread']) }}" class="nav-item nav-link">
+                    積読中
                 </a>
-                <a href="{{ url('/mybook/read/') }}" class="nav-item nav-link">
-                    読んだ！本棚
+                <a href="{{ route('mybooks', ['type' => 'read']) }}" class="nav-item nav-link">
+                    読破
                 </a>
-                <a href="{{ url('/search/') }}" class="nav-item nav-link">
+                <a href="{{ route('search') }}" class="nav-item nav-link">
                     書籍検索
                 </a>
                 <a class="nav-item nav-link" href="{{ route('logout') }}"

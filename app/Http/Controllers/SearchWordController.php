@@ -24,7 +24,7 @@ class SearchWordController extends Controller
         $this->page_service = $page_service;
     }
 
-    public function main(Request $request, int $page = 0)
+    public function main(Request $request, int $page = 1)
     {
         $word = $request->input('word') ?? self::DEFAULT_SEARCH_WORD;
         $search_result = $this->search_client->search($word, self::DEFAULT_PER_PAGE, $page);

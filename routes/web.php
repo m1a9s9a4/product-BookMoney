@@ -11,17 +11,16 @@
 |
 */
 
-Route::get('/search/', 'SearchWordController@main');
-Route::get('/search/{page}', 'SearchWordController@main');
+Route::get('/search/', 'SearchWordController@main')->name('search');
+Route::get('/search/{page}', 'SearchWordController@main')->name('search.page');
 
 Route::group([
     'middleware' => 'auth',
 ], function () {
-    Route::get('/', 'MyBookController@main');
-    Route::get('/mybook/', 'MyBookController@main');
-    Route::get('/mybook/{type}/', 'MyBookTypeController@main');
+    Route::get('/', 'HomeController@main')->name('home');
+    Route::get('/mybooks/{type}/', 'MyBookTypeController@main')->name('mybooks');
 //    Route::get('/balance/', 'BalanceController@main');
-    Route::post('/book/insert', 'BookInsertController@main');
+    Route::post('/book/insert', 'BookInsertController@main')->name('book.insert');
 });
 
 Auth::routes();

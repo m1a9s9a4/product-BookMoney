@@ -35,4 +35,10 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('APP_URL') . env('GOOGLE_REDIRECT_URL'),
     ],
+
+    'rakuten' => [
+        'application_id' => env('RAKUTEN_APPLICATION_ID'),
+        'application_secret' => env('RAKUTEN_APPLICATION_SECRET'),
+        'AFFILIATE_ID' => env('RAKUTEN_AFFILIATE_ID'),
+    ],
 ];
