@@ -1,35 +1,22 @@
+import Vue from "vue";
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
-import Vue from 'vue';
-
-// Vuetify
-import Vuetify from 'vuetify';
-import colors from 'vuetify/es5/util/colors';
-
+window.Vue = require('vue');
+import Vuetify from "vuetify";
+import 'vuetify/dist/vuetify.min.css';
+import '@mdi/font/css/materialdesignicons.css'
 Vue.use(Vuetify, {
-    theme: {
-        primary: colors.indigo.base,
-        secondary: colors.blue.base,
-        accent: colors.amber.base,
+    icons: {
+        iconfont: 'mdi'
     }
-});
-
-import 'vuetify/dist/vuetify.min.css'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-
-// Vue-Router
-import router from './router';
-
-// Main app
-const app = new Vue({
-    el: '#app',
-    router,
 });
 
 /**
@@ -43,7 +30,10 @@ const app = new Vue({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('book-card-component', require('./components/cards/Book.vue').default);
+Vue.component('balance-table-component', require('./components/tables/Balance.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -51,4 +41,7 @@ const app = new Vue({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./pages/view');
+const app = new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+});

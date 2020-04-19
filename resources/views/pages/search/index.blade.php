@@ -20,8 +20,11 @@
                         <h2 class="text-center heading_2"><span>{{ $searched_word }}</span>の検索結果</h2>
                         <div class="row p-1">
                             @foreach($searched_books as $book)
-                                @card_book(['book' => $book])
-                                @endcard_book
+                                <book-card-component
+                                    title="{{ $book->getTitle() }}"
+                                    url="{{ $book->getUrl() }}"
+                                    img="{{ $book->getImageUrl() }}"
+                                ></book-card-component>
                             @endforeach
                         </div>
                     </div>
